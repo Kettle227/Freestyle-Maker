@@ -1,0 +1,203 @@
+{% extends "./_base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+    {{ form.certifications.errors }}
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h2 class="text-center">編集・追加</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="float-right">
+                    
+                    <a class="btn btn-outline-dark" href="{% url 'index' %}">戻る</a>
+                    <a class="btn btn-outline-dark save" href="#">保存</a>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <form method="post" id="myform">
+                    {% crispy form %}
+                </form>
+                <!--ここからプルダウンメニュー-->
+                <form>
+                    <div id="edit_pull_style1"> 
+                    <label class="col-form-label">状態記号</label>
+                    <select id="select1" name="arrow" class="form-control">
+                            <option value="none" label="無し"></option>
+                            <option value="1">起</option>
+                            <option value="2">伏</option>
+                            <option value="3">縦</option>
+                            <option value="4">横</option>
+                            <option value="5">根本</option>
+                            <option value="6">指先</option>
+                            </select> </div>
+                </form>
+
+                <form>
+                    <div id="edit_pull_style1"> 
+                    <label class="col-form-label">接頭語</label>
+                    <select id="select2" name="arrow" class="form-control">
+                            <option value="none" label="無し"></option>
+                            <option value="1">スクエア</option>
+                            <option value="2">キューブ</option>
+                            <option value="3">コンティニュアス</option>
+                            <option value="4">シメトリカル</option>
+                            <option value="5">スキップ</option>
+                            <option value="6">スプレッド</option>
+                            <option value="7">スリップト</option>
+                            <option value="8">ハーモニカル</option>
+                            <option value="9">フェイク</option>
+                            <option value="10">フルーエント</option>
+                            <option value="11">ムーンウォーク</option>
+                            </select> </div>
+                </form>
+
+
+
+                <form>
+                <div id="edit_pull_style2"> 
+                <label class="col-form-label">回転軸（xのみ）</label> 
+                   <select id="select3" name="position" class="form-control">
+                        <option value="none" label="無し"></option>
+                        <option value="1">1-</option>
+                        <option value="2">2-</option>
+                        <option value="3">3-</option>
+                        <option value="4">4-</option>
+                        <option value="5">5-</option>
+                        <option value="0">0-</option>
+                        <option value="a">A-</option>
+                        </select></div>
+                </form>
+
+                <form>
+                <div id="edit_pull_style3"> 
+                <label class="col-form-label">技名</label>
+                <select id="select4" name="technique" class="form-control">
+                    <optgroup label="ノーマル系統">
+                        <option value="normal">ノーマル</option>
+                        <option value="fingerless-normal">フィンガーレスノーマル</option>
+                        <option value="reverse">リバース</option>
+                        <option value="scissorspin">シザースピン</option>
+                    </optgroup>
+                    <optgroup label="ソニック系統">
+                        <option value="sonic">ソニック</option>
+                        <option value="twisted-sonic">ソニックひねり</option>
+                        <option value="Pseudosonic">スードウソニック</option>
+                        <option value="flashsonic">フラッシュソニック</option>
+                        <option value="shadow">シャドウ</option>
+                        <option value="neosonic">ネオソニック</option>
+                    </optgroup>
+                    <optgroup label="ガンマン・パス系統">
+                        <option value="gunman">ガンマン</option>
+                        <option value="reverse">ハーフガンマン</option>
+                        <option value="pass">パス</option>
+                    </optgroup>
+                    <optgroup label="バックアラウンド系統">
+                    <option value="backaround">バックアラウンド</option>
+                    <option value="neo-backaround">ネオバックアラウンド</option>
+                　　</optgroup>
+                    <optgroup label="その他">
+                        <option value="windmill">ウィンドミル</option>
+                        <option value="half-windmill">ハーフウィンドミル</option>
+                        <option value="backtap">バックタップ</option>
+                        <option value="backaround">ラダー</option>                   
+                    </optgroup>
+                        </select> </div>
+                </form>
+
+                <form>
+                    <div id="edit_pull_style5"> 
+                    <label class="col-form-label">接尾語</label>
+                    <select id="select5" name="arrow" class="form-control">
+                            <option value="none" label="無し"></option>
+                            <option value="reverse">リバース</option>
+                            <option value="fall">フォール</option>
+                            <option value="rise">ライズ</option>
+                            <option value="riser">ライザー</option>
+                            </select> </div>
+                </form>
+
+                
+                <form>
+                <div id="edit_pull_style5"> 
+                <label class="col-form-label">接続記号</label>
+                <select id="select6" name="arrow" class="form-control" size="2" >
+                        <option value="arrow">⇒</option>
+                        <option value="double-arrow">≫</option>
+                        </select> </div>
+                </form>
+            </div>
+        </div>
+     <!--プルダウンここまで-->
+        <div class="row">
+            <div class="col-12">
+                <div class="float-right mb-3">
+                    <a class="btn btn-outline-dark" href="{% url 'index' %}">戻る</a>
+                    <button class="btn btn-outline-dark" type="submit" onclick="addText();">追加</button>
+                    <a class="btn btn-outline-dark save" href="#">保存</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<script>
+    function addText()
+  {
+
+  var obj = document.getElementById('select1');
+  // 1で選択されている値の番号を取得
+  var idx = obj.selectedIndex;
+  // 値を取得
+  var txt  = obj.options[idx].text;
+  document.getElementById('id_sample_2').value
+          +=  document.getElementsByClassName.textContent = txt;
+
+  var obj = document.getElementById('select2');
+  // 2で選択されている値の番号を取得
+  var idx = obj.selectedIndex;
+  // 値を取得
+  var txt  = obj.options[idx].text;
+  document.getElementById('id_sample_2').value
+          +=  document.getElementsByClassName.textContent = txt;
+
+  var obj = document.getElementById('select3');
+  // 3で選択されている値の番号を取得
+  var idx = obj.selectedIndex;
+  // 値を取得
+  var txt  = obj.options[idx].text;
+  document.getElementById('id_sample_2').value
+          +=  document.getElementsByClassName.textContent = txt;
+
+  var obj = document.getElementById('select4');
+  // 4で選択されている値の番号を取得
+  var idx = obj.selectedIndex;
+  // 値を取得
+  var txt  = obj.options[idx].text;
+  document.getElementById('id_sample_2').value
+          +=  document.getElementsByClassName.textContent = txt;
+  
+  var obj = document.getElementById('select5');
+  // 5で選択されている値の番号を取得
+  var idx = obj.selectedIndex;
+  // 値を取得
+  var txt  = obj.options[idx].text;
+  document.getElementById('id_sample_2').value
+          +=  document.getElementsByClassName.textContent = txt;
+  
+  var obj = document.getElementById('select6');
+  // 6で選択されている値の番号を取得
+  var idx = obj.selectedIndex;
+  // 値を取得
+  var txt  = obj.options[idx].text;
+  document.getElementById('id_sample_2').value
+          +=  document.getElementsByClassName.textContent = txt;
+      
+          
+  }
+</script>
+
+{% endblock %}
