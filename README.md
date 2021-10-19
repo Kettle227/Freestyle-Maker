@@ -1,4 +1,4 @@
-instant-django
+Freestyle-Maker by instant-django
 ====
 
 以下の記事を参考に、ペン回しのオーダーを作成できるツールを開発しました。
